@@ -12,7 +12,7 @@ import java.util.*;
 public class CustomerServiceImpl implements CustomerService {
 
     Map<UUID,Customer> customerMap;
-    CustomerServiceImpl() {
+   public CustomerServiceImpl() {
         customerMap = new HashMap<>();
 
         Customer Customer1 = Customer.builder().customerName("Jeffrey Perparas")
