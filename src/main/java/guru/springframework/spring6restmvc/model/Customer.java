@@ -12,7 +12,7 @@ import java.util.UUID;
 public class Customer {
     private String customerName;
     private UUID customerId;
-    private int version;
+    private Integer version;
     private LocalDateTime createdDate;
     private LocalDateTime lastModifiedDate;
 }
