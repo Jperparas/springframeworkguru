@@ -67,12 +67,15 @@ public class BeerController{
     public List<Beer> listBeers(){
         return beerService.listBeers();
     }
+
+
+
     @GetMapping(BEER_PATH_ID)
     public Beer getBeerById(@PathVariable("beerId") UUID beerId){
 
         log.debug("Get beer by id-- in controller--124");
 
-        return beerService.getBeerbyId(beerId);
+        return beerService.getBeerbyId(beerId).orElseThrow(NotFoundException::new);
     }
 
 }
