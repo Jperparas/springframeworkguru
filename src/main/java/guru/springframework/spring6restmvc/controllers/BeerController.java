@@ -42,9 +42,11 @@ public class BeerController{
     }
 
     @PutMapping(BEER_PATH_ID)
-    public ResponseEntity udateById(@PathVariable("beerId") UUID beerId,@RequestBody BeerDTO beer) {
+    public ResponseEntity updateById(@PathVariable("beerId") UUID beerId, @RequestBody BeerDTO beer) {
 
-        beerService.updateBeerById(beerId, beer);
+       if (beerService.updateBeerById(beerId, beer).isEmpty()){
+           throw new NotFoundException();
+       }
 
         return  new ResponseEntity(HttpStatus.NO_CONTENT);
     }
@@ -56,7 +58,7 @@ public class BeerController{
         BeerDTO savedBeer = beerService.saveNewBeer(beer);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location","api/v1/beer/" + savedBeer.getId());
+        headers.add("Location","/api/v1/beer/" + savedBeer.getId());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
 

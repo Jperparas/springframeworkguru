@@ -1,12 +1,10 @@
 package guru.springframework.spring6restmvc.services;
 
 import guru.springframework.spring6restmvc.model.BeerDTO;
-import guru.springframework.spring6restmvc.model.BeerStyle;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -61,14 +59,14 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public void updateBeerById(UUID beerId, BeerDTO beer) {
+    public Optional<BeerDTO> updateBeerById(UUID beerId, BeerDTO beer) {
         BeerDTO existing = beerMap.get(beerId);
         existing.setBeerName(beer.getBeerName());
         existing.setQuantityOnHand(beer.getQuantityOnHand());
         existing.setUpc(beer.getUpc());
         existing.setPrice(beer.getPrice());
         existing.setVersion(beer.getVersion());
-
+        return Optional.of(existing);
     }
 
     @Override
