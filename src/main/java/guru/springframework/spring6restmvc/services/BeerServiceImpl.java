@@ -17,61 +17,14 @@ public class BeerServiceImpl implements BeerService {
     private Map<UUID, BeerDTO> beerMap;
 
     public BeerServiceImpl() {
-        this.beerMap = new HashMap<>();
-
-        BeerDTO beer1 = BeerDTO.builder()
-                .id(UUID.randomUUID())
-                .version(1)
-                .beerName("Larky Malarky")
-                .beerStyle(BeerStyle.STOUT)
-                .upc("1773")
-                .price(new BigDecimal("8.99"))
-                .quantityOnHand(95)
-                .createdDate(LocalDateTime.now())
-                .updatedDate(LocalDateTime.now())
-                .build();
-
-        BeerDTO beer2 = BeerDTO.builder()
-                .id(UUID.randomUUID())
-                .version(1)
-                .beerName("Pure Intention")
-                .beerStyle(BeerStyle.PALE_ALE)
-                .upc("23254")
-                .price(new BigDecimal("6.99"))
-                .quantityOnHand(240)
-                .createdDate(LocalDateTime.now())
-                .updatedDate(LocalDateTime.now())
-                .build();
-
-        BeerDTO beer3 = BeerDTO.builder()
-                .id(UUID.randomUUID())
-                .version(1)
-                .beerName("Name Dropper")
-                .beerStyle(BeerStyle.IPA)
-                .upc("3632")
-                .price(new BigDecimal("7.99"))
-                .quantityOnHand(144)
-                .createdDate(LocalDateTime.now())
-                .updatedDate(LocalDateTime.now())
-                .build();
-
-        BeerDTO beer4 = BeerDTO.builder()
-                .id(UUID.randomUUID())
-                .version(1)
-                .beerName("Bring The Noise")
-                .beerStyle(BeerStyle.PALE_ALE)
-                .upc("123456")
-                .price(new BigDecimal("12.99"))
-                .quantityOnHand(122)
-                .createdDate(LocalDateTime.now())
-                .updatedDate(LocalDateTime.now())
-                .build();
-
-
-        beerMap.put(beer1.getId(), beer1);
-        beerMap.put(beer2.getId(), beer2);
-        beerMap.put(beer3.getId(), beer3);
-        beerMap.put(beer4.getId(), beer4);
+       this.beerMap = new HashMap<>();
+//
+//
+//
+//        beerMap.put(beer1.getId(), beer1);
+//        beerMap.put(beer2.getId(), beer2);
+//        beerMap.put(beer3.getId(), beer3);
+//        beerMap.put(beer4.getId(), beer4);
 
     }
 

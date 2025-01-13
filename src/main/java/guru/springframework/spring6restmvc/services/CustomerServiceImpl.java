@@ -11,34 +11,15 @@ import java.util.*;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    Map<UUID, CustomerDTO> customerMap;
+    private Map<UUID, CustomerDTO> customerMap;
    public CustomerServiceImpl() {
-        customerMap = new HashMap<>();
-
-        CustomerDTO Customer1 = CustomerDTO.builder().customerName("Jeffrey Perparas")
-                .customerId(UUID.randomUUID())
-                .version(1)
-                .createdDate(LocalDateTime.now())
-                .lastModifiedDate(LocalDateTime.now())
-                .build();
-
-        CustomerDTO Customer2 = CustomerDTO.builder().customerName("Vanessa Gonzalez")
-                .customerId(UUID.randomUUID())
-                .version(1)
-                .createdDate(LocalDateTime.now())
-                .lastModifiedDate(LocalDateTime.now())
-                .build();
-
-        CustomerDTO Customer3 = CustomerDTO.builder().customerName("Kang ho Dong")
-                .customerId(UUID.randomUUID())
-                .version(1)
-                .createdDate(LocalDateTime.now())
-                .lastModifiedDate(LocalDateTime.now())
-                .build();
-
-        customerMap.put(Customer1.getCustomerId(), Customer1);
-        customerMap.put(Customer2.getCustomerId(), Customer2);
-        customerMap.put(Customer3.getCustomerId(), Customer3);
+       customerMap = new HashMap<>();
+//
+//
+//
+//        customerMap.put(Customer1.getCustomerId(), Customer1);
+//        customerMap.put(Customer2.getCustomerId(), Customer2);
+//        customerMap.put(Customer3.getCustomerId(), Customer3);
 
     }
     @Override
