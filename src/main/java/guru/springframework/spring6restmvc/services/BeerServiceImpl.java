@@ -17,8 +17,7 @@ public class BeerServiceImpl implements BeerService {
     private Map<UUID, BeerDTO> beerMap;
 
     public BeerServiceImpl() {
-        this.beerMap = new HashMap<>();
-
+       this.beerMap = new HashMap<>();
         BeerDTO beer1 = BeerDTO.builder()
                 .id(UUID.randomUUID())
                 .version(1)
@@ -73,6 +72,7 @@ public class BeerServiceImpl implements BeerService {
         beerMap.put(beer3.getId(), beer3);
         beerMap.put(beer4.getId(), beer4);
 
+
     }
 
     @Override
@@ -108,23 +108,24 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public void updateBeerById(UUID beerId, BeerDTO beer) {
+    public Optional<BeerDTO> updateBeerById(UUID beerId, BeerDTO beer) {
         BeerDTO existing = beerMap.get(beerId);
         existing.setBeerName(beer.getBeerName());
         existing.setQuantityOnHand(beer.getQuantityOnHand());
         existing.setUpc(beer.getUpc());
         existing.setPrice(beer.getPrice());
         existing.setVersion(beer.getVersion());
-
+        return Optional.of(existing);
     }
 
     @Override
-    public void deleteBeerById(UUID beerId) {
+    public Boolean deleteBeerById(UUID beerId) {
         beerMap.remove(beerId);
+        return true;
     }
 
     @Override
-    public void patchBeerById(UUID beerId, BeerDTO beer) {
+    public Optional<BeerDTO> patchBeerById(UUID beerId, BeerDTO beer) {
         BeerDTO existing = beerMap.get(beerId);
 
         if (StringUtils.hasText(beer.getBeerName())){
@@ -142,6 +143,6 @@ public class BeerServiceImpl implements BeerService {
         if (StringUtils.hasText(beer.getUpc())){
             existing.setUpc(beer.getUpc());
         }
-
+        return Optional.of(existing);
     }
 }
